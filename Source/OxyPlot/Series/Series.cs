@@ -33,10 +33,32 @@ namespace OxyPlot.Series
         /// <remarks>This property defines the background color in the area defined by the x and y axes used by this series.</remarks>
         public OxyColor Background { get; set; }
 
+        #region IsVisible
+        bool _IsVisible = false;
         /// <summary>
         /// Gets or sets a value indicating whether this series is visible. The default is <c>true</c>.
         /// </summary>
-        public bool IsVisible { get; set; }
+        public bool IsVisible
+        {
+            get { return _IsVisible; }
+            set
+            {
+                var changed = _IsVisible != value;
+                if (changed)
+                {
+                    _IsVisible = value;
+                    OnVisibleChanged();
+                }
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// Called when Visible changed
+        /// </summary>
+        public virtual void OnVisibleChanged()
+        {
+        }
 
         /// <summary>
         /// Gets or sets the title of the series. The default is <c>null</c>.
