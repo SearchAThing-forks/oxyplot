@@ -11,7 +11,8 @@ namespace OxyPlot
 {
     using System;
     using System.IO;
-
+    using System.IO.Compression;
+    
     /// <summary>
     /// Implements support for decoding png images.
     /// </summary>
